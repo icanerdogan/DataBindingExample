@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="uservariable"
+            type="com.icanerdogan.basicdatabinding.model.User" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@{uservariable.name}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="5dp"
+            android:padding="10dp"
+            android:textSize="25sp"
+            android:gravity="center_vertical"
+            android:hint="name"/>
+
+        <TextView
+            android:id="@+id/textViewAge"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@{uservariable.formatAge()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="5dp"
+            android:padding="10dp"
+            android:textSize="25sp"
+            android:gravity="center_vertical"
+            android:hint="age"/>
+
+        <TextView
+            android:id="@+id/textViewActive"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@{uservariable.controlActive()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="5dp"
+            android:padding="10dp"
+            android:textSize="25sp"
+            android:gravity="center_vertical"
+            android:hint="active"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:enabled="@{uservariable.active}"
+            android:onClick="@{() -> uservariable.setImageClick(imageView)}"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:text="CALL METHOD INSIDE USER CLASS"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"/>
+
+    </LinearLayout>
+</layout>
